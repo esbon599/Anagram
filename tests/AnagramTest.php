@@ -81,6 +81,26 @@
             //assert
             $this->assertEquals(["na","an"], $result);
         }
+
+        /*
+        input: “an”, [“gnat”, “hand”, “fan”, “test”]
+        output: [“gnat”, “hand”, “fan”]
+        Spec: Insert a single multiple lettered word and a list of words, and output the words in the list that contain all the letters in the single word
+        */
+        function test_findAnagram_partialMatches()
+        {
+            //arrange
+            $test_Anagram = new Anagram();
+            $input = "an";
+            $input2 = ["gnat", "hand", "fan", "test"];
+
+            //act
+            $result = $test_Anagram->findAnagram($input, $input2);
+
+            //assert
+            $this->assertEquals(["gnat", "hand", "fan"], $result);
+        }
+
     }
 
 
