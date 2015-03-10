@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <title>Banananagram</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Matching anagrams including partial matches</h1>
+
+                    <p class="lead">
+                        for the word {{input_word}}
+                    </p>
+
+                    {% if results is not empty %}
+
+                    <ul>
+                        {% for word in results %}
+
+                        <li>{{word}}</li>
+
+                        {% endfor %}
+                    </ul>
+
+                    {% else %}
+
+                    <p>
+                        <b>No Search Results were found.</b>
+                    </p>
+
+                    {% endif %}
+
+                    <p>
+                        <a href="/">Enter more words!</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
