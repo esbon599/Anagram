@@ -44,7 +44,7 @@
         }
 
         /*
-        input: “an”, [“na”, “an”, “nf”]
+        input: “an”, [“nt”, “an”, “nf”]
         output: [“an”]
         Spec: Insert multiple letter words, and output exact matches in our list
         */
@@ -53,7 +53,7 @@
             //arrange
             $test_Anagram = new Anagram();
             $input = "an";
-            $input2 = ["na", "an", "nf"];
+            $input2 = ["nt", "an", "nf"];
 
             //act
             $result=$test_Anagram->findAnagram($input, $input2);
@@ -65,9 +65,22 @@
         /*
         input: “an”, [“na”, “an”, “nf”]
         output: [“na”, “an”]
-        Spec: Insert a multiple lettered word and a list of words, and output the words in the lists that have the exact same letters
+        Spec: Insert a multiple lettered word and a list of words, and output
+        the words in the lists that have the exact same letters
         */
-        
+        function test_findAnagram_sameLetters()
+        {
+            //arrange
+            $test_Anagram = new Anagram();
+            $input = "an";
+            $input2 = ["na", "an", "nf"];
+
+            //act
+            $result = $test_Anagram->findAnagram($input, $input2);
+
+            //assert
+            $this->assertEquals(["na","an"], $result);
+        }
     }
 
 
