@@ -26,7 +26,7 @@
 
         /*
         input: “a”, [“a”, “b”, “a”]
-        output: [“a”]
+        output: [“a”, "a"]
         Spec: Insert a single letter and a list of single letters, and then see which ones match.
         */
         function test_findAnagram_multipleEntries()
