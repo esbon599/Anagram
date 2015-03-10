@@ -101,6 +101,45 @@
             $this->assertEquals(["gnat", "hand", "fan"], $result);
         }
 
+        /*
+        input: “an”, [“An”, “aN”, “AN”, “bt”]
+        output: [“An”, “aN”, “AN”]
+        Spec: input will match items in the list that are capitalized and return the capitalized value
+        */
+        function test_findAnagram_capitalized()
+        {
+            //arrange
+            $test_Anagram = new Anagram();
+            $input = "an";
+            $input2 = ["An", "aN", "AN", "bt"];
+
+            //act
+            $result = $test_Anagram->findAnagram($input, $input2);
+
+            //assert
+            $this->assertEquals(["An", "aN", "AN"], $result);
+        }
+
+        /*
+        input: "ann", ["ane", "anne"]
+        output: ["anne"]
+        Spec: words with repeating letters should not be matched with words that
+        only have one of that letter
+        */
+        function test_findAnagram_duplicates()
+        {
+            //arrange
+            $test_Anagram = new Anagram();
+            $input = "ann";
+            $input2 = ["ane", "anne"];
+
+            //act
+            $result = $test_Anagram->findAnagram($input, $input2);
+
+            //assert
+            $this->assertEquals(["anne"], $result);
+        }
+
     }
 
 
